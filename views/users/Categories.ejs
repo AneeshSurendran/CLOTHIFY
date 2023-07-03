@@ -1,0 +1,85 @@
+<%- include('../layouts/header.ejs') %>
+
+   <!-- Navbar Start -->
+
+   <style>
+
+
+    /* Style for the label */
+    .label {
+        text-align: center;
+        background-color: white;
+        padding: 10px;
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: bold;
+        width: 35px;
+    }
+
+    /* Style for the radio button */
+    input[type="radio"] {
+        display: none;
+    }
+
+    /* Style for the label when the radio button is checked */
+    input[type="radio"]:checked+label {
+        color: #2196F3;
+    }
+
+
+
+    /* Style for the radio button circle */
+    input[type="radio"]+label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+
+    /* Style for the radio button circle when checked */
+    input[type="radio"]:checked+label::before {
+        background-color: #2196F3;
+        border-color: #2196F3;
+    }
+
+
+
+    /* Accessibility styles for the radio button circle */
+    input[type="radio"]+label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+
+    input[type="radio"]+label::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+
+    input[type="radio"]+label::before:focus,
+    input[type="radio"]+label::before:hover {
+        outline: none;
+        border-color: #2196F3;
+    }
+</style>

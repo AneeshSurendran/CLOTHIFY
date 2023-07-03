@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothify </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/tailwind.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="../assets/js/init-alpine.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css"> 
+    <link rel="stylesheet" href="/css/custom.css" type="text/css"> 
+</head>
+<body>
+    <section id="header">
+        <a href="#"> <img src="/assets/images/logo12345.png" class="logo" alt=""></a>
+        <div>
+           
+            <ul id="navbar">
+                <% if(user) { %>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/loadShop">Shop</a></li>
+                    <li><a href="loadShop">Categories</a></li>
+                    <li><a href="/loadWishlist">Wishlist</a></li>
+                    <li id="lg-bag"><a href="/loadCart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+                <li><a href="/userProfile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% } else {%>
+                <li><a href="/">Home</a></li>
+                <li><a href="/loadShop">Shop</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Signup</a></li>
+                <li><a href="/loadShop">Categories</a></li>
+                    <!-- <li><a href="contact.html">Cart</a></li> -->
+                <li id="lg-bag"><a href="/login"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+                
+                <% } %>
+            </ul>
+        </div>
+        <div id="mobile">
+    
+            <!-- <a href="cart.html"><i class="fa-regular fa-bag-shopping"></i></a>
+            <i id="bar" class="fas fa-outdent"></i> -->
+        </div>
+    </section>
+
+
+
+    

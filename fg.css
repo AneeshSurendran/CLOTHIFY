@@ -1,0 +1,293 @@
+
+
+
+
+
+
+
+    <%- include('../layouts/header.ejs') %>
+
+
+    <section id="page-header">
+
+        <h2>Pick up where you left off</h2>
+
+        <p>Save more with coupons & up to 70% off!</p>
+
+    </section>
+
+
+
+
+
+
+    <div class="container-fluid" >
+        <div class="row px-xl-5">
+         
+            <div class="col-lg-3 col-md-4  pt-4  pl-lg-4" style="padding-left: 30px;">
+                <!-- Price Start -->
+                <h5 class="section-title position-relative text-uppercase mb-3"><span
+                        style="color: #0c948b; padding-left: 35px;" class="pr-3">Filter by Category</span></h5>
+                <div style="background-color: rgb(248, 244, 244); border-radius: 10px;  border: 1px solid #0f968d;"
+                    class=" p-4 mb-30">
+                    <form style="color: #0f7770;" action="/loadShop">
+
+
+                        <% for(i=0;i<category.length;i++){%>
+                            <% if (category[i].is_available==1){%>
+                                <div
+                                    class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-1">
+                                    <div class="form-check ">
+                                        <input class="category form-check-input" type="checkbox" value="<%-i%>"
+                                            name="category" onchange="update()" <% for(j=0; j< selected.length; j++) {
+                                            if(selected[j]==i) { %>checked<%}}%>/>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                <%-category[i].name %>
+                                            </label>
+                                    </div>
+                                </div>
+                                <%}%>
+                                    <%}%>
+                </div>
+
+                <!-- Price End -->
+
+                <!-- <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by color</span></h5> -->
+                <div class="bg p-4 mb-30">
+
+                </div>
+            </div>
+
+            <div class="row pb-3">
+                <div class="col-12 pb-1" style="padding-left: 330px; margin-top: -10%;" >
+                    <div class="col-lg-12 d-flex align-items-center mb-4">
+
+                        <div class="ml-2 col-lg-3 d-flex " >
+                            <select
+                                style=" background-color: rgb(247, 243, 243); border-color:#0f968d; color: #0f968d; border-radius: 5px;"
+                                class="select-box select-box--transparent-b-2" name="limit" id="limit"
+                                onchange="update()">
+                                <option value="12" <% if(limit==12) { %>selected<%}%> >Show: All</option>
+                                <option value="3" <% if(limit==3) { %>selected<%}%> >Show: 3</option>
+                                <option value="6" <% if(limit==6) { %>selected<%}%> >Show: 6</option>
+                                <option value="9" <% if(limit==9) { %>selected<%}%> >Show: 9</option>
+                            </select>
+                            <select
+                                style="background-color: rgb(243, 243, 243); border-color:#0f968d ;color: #0f968d; border-radius: 5px;"
+                                class="select-box select-box--transparent-b-2 mx-4" name="sort" id="sort"
+                                onchange="update()">
+                                <option value="0" <% if(order==0) { %>selected<%}%> >Sort By: Latest Arrivals</option>
+                                <option value="1" <% if(order==1) { %>selected<%}%> >Sort By: Lowest Price</option>
+                                <option value="-1" <% if(order==-1) { %>selected<%}%> >Sort By: Highest Price</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+
+                        </div>
+
+                        <div class="ml-2 col-lg-6">
+                            <div>
+                                <form action="">
+                                    <div class="input-group" >
+                                        <input type="text" class="form-control" style="margin-left: 50%; margin-top: -2%; height: min-content; " placeholder="Search" name="search"
+                                            id="search" onkeyup="update()">
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <section id="product1" class="section-p1">
+
+                <div class="pro-container">
+
+                    <% if(product){ %>
+
+                        <% for(i=0;i<product.length;i++){ %>
+                            <% if(product[i].isAvailable){ %>
+                                <div class="pro">
+                                    <a href="/viewDetails?id=<%=product[i]._id%>"><img
+                                            src="uploads/<%=product[i].image[0]%>" alt=""></a>
+                                    <div class="des">
+                                        <span>Clothify</span>
+                                        <h5>
+                                            <%=product[i].name%>
+                                        </h5>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <h4>₹ <%=product[i].price%>
+                                        </h4>
+                                    </div>
+                                    <a href="/loadCart"><i class="fa fa-shopping-cart cart"></i></a>
+                                </div>
+                                <% } } %>
+                                    <% } %>
+                </div>
+            </section>
+
+            <section id="pagination" class="section-p1">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">→</a>
+            </section>
+
+            <section id="newsletter" class="section-p1 section-m1">
+                <div class="newstext">
+                    <h4>Sign up For Newsletters</h4>
+                    <p>Get E-mail updates about our latest shop and <span> Special Offers. </span>
+                    </p>
+                </div>
+                <div class="form">
+                    <input type="text" placeholder="Your email address">
+                    <button class="normal">Sign Up</button>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <script src="/assets copy/js/jquery-1.11.0.min.js"></script>
+    <script src="/assets copy/js/jquery-migrate-1.2.1.min.js"></script>
+
+            
+
+            <script>
+                console.log('itrufysvdmhg');
+                let page = 0
+                function updatePage(pg = 0) {
+                    console.log('rtjhihughg');
+                    page = pg
+                    console.log(page);
+                    pageNo = document.getElementsByClassName('page-item')
+                    for (let key of pageNo) { key.classList.remove('active') }
+                    document.getElementById(page).classList.add('active')
+                    update()
+                }
+
+                function update() {
+                    console.log('litugbh');
+                    var elements = document.getElementsByClassName("category");
+                    var limit = document.getElementById('limit').value
+                    var sort = document.getElementById('sort').value
+                    var search = document.getElementById('search').value
+                    var arr = '';
+                    for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].checked) {
+                            arr = [...arr, elements[i].value]
+
+                        }
+                    }
+                    console.log(arr + '\n' + limit + '\n' + sort + '\n' + search + '\n' + page);
+                    $.ajax({
+                        url: '/loadShop',
+                        type: 'GET',
+                        data: { category: arr, limit: limit, sort: sort, search: search, page: page, ajax: true },
+                        success: function (data) {
+                            console.log(data);
+                            if (data.pageCount == 1) {
+                                document.getElementById('pgnt').style.display = 'none';
+                            } else {
+                                document.getElementById('pgnt').style.display = 'block';
+                            }
+                            product = data.products
+                            document.getElementById('products').innerHTML = `
+    ${product.map((productItem) => `
+
+
+
+
+        <div class="col-12 col-md-4 mb-4">
+                    <div style="background-color: rgb(35, 35, 35); border-color: rgb(94, 94, 94);border-radius: 20px;" class="card h-100">
+                        <a href="/viewDetails?id=${productItem._id}">
+                            <img style="border-width: 1px; border-color: rgb(226, 99, 99); border-radius: 20px;" src="/uploads/${productItem.image[0]}" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                                <li class="text-muted text-right ">Rs ${productItem.price}</li>
+                            </ul>
+                            <a href="/viewDetails?id=${productItem._id}" style="color: #ffffff;" class="h2 text-uppercase text-decoration-none">${productItem.name}</a>
+                            
+                    
+                                                        
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+    `).join('')}
+`;
+                            console.log(data.pageCount);
+                            if (data.pageCount > 1) {
+                                console.log('gte');
+                                document.getElementById('pgnt').innerHTML = `
+    <nav>
+        <ul class="pagination justify-content-center">
+            ${Array(data.pageCount).fill().map((_, index) => `
+                <li class="page-item pg" id="${index}">
+                    <a class="page-link" onclick="updatePage('${index}')">${index + 1}</a>
+                </li>
+            `).join('')}
+        </ul>
+    </nav>
+`;
+                            } else {
+                                if (data.page != 0) {
+                                    updatePage()
+                                }
+                            }
+
+
+                        }
+                    });
+                }
+            </script>
+
+
+            <%- include('../layouts/footer.ejs') %>
